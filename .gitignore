@@ -219,3 +219,5 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,netbeans,intellij,maven
+java-parallel-process-file.iml
+.idea/
