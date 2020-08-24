@@ -1,6 +1,8 @@
 package com.vagnerpgss.job;
 
-// ver de criar a interface de Job
-public interface Job extends Runnable {
+import com.vagnerpgss.job.result.JobResult;
+import java.util.concurrent.Callable;
+
+public interface Job extends Callable<JobResult> {
 
 }
