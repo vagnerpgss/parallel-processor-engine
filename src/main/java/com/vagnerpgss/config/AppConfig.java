@@ -1,9 +1,9 @@
 package com.vagnerpgss.config;
 
-import com.vagnerpgss.service.defs.DefaultConsumersService;
-import com.vagnerpgss.service.interfaces.ConsumersService;
-import com.vagnerpgss.service.defs.DefaultParallelProcessorService;
-import com.vagnerpgss.service.interfaces.ParallelProcessorService;
+import com.vagnerpgss.service.DefaultConsumersService;
+import com.vagnerpgss.service.ConsumerProducerService;
+import com.vagnerpgss.processor.DefaultParallelProcessorService;
+import com.vagnerpgss.processor.ParallelProcessorService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    ConsumersService getDefaultConsumersService() {
+    ConsumerProducerService getDefaultConsumersService() {
         return new DefaultConsumersService();
     }
 

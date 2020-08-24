@@ -1,6 +1,6 @@
 package com.vagnerpgss;
 
-import com.vagnerpgss.service.interfaces.ParallelProcessorService;
+import com.vagnerpgss.processor.ParallelProcessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

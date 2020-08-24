@@ -1,33 +1,32 @@
-package com.vagnerpgss.service.defs;
+package com.vagnerpgss.processor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.vagnerpgss.job.DefaultJob;
-import com.vagnerpgss.service.interfaces.ConsumersService;
-import com.vagnerpgss.service.interfaces.ParallelProcessorService;
+import com.vagnerpgss.service.ConsumerProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class DefaultParallelProcessorService implements ParallelProcessorService {
 
-    private final ConsumersService consumersService;
+    private final ConsumerProducerService consumerProducerService;
 
     @Autowired
-    public DefaultParallelProcessorService(ConsumersService consumersService) {
-        this.consumersService = consumersService;
+    public DefaultParallelProcessorService(ConsumerProducerService consumerProducerService) {
+        this.consumerProducerService = consumerProducerService;
     }
 
     @Override
     public void processParallelizableFile(String pathName) {
         Scanner scan = null;
         try {
-            System.out.println(" ##################################################### ");
             scan = new Scanner(new File(pathName));
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                consumersService.produce(new DefaultJob());
+                consumerProducerService.produce(new DefaultJob(line));
             }
+            consumerProducerService.consume();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             //TODO - Exception
